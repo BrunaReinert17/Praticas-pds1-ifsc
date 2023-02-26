@@ -1,6 +1,6 @@
 package visao;
 
-import java.awt.EventQueue;
+import java.awt.EventQueue; 
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -9,20 +9,20 @@ import javax.swing.border.EmptyBorder;
 import controle.FuncionarioDAO;
 import modelo.Funcionario;
 
-import java.awt.Color;
 import javax.swing.JTextField;
-import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
+import java.awt.SystemColor;
 
 public class JanelaCadastroPessoa extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtNome;
-	private JTextField txtCpf;
+	private JTextField textField;
+	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -44,61 +44,61 @@ public class JanelaCadastroPessoa extends JFrame {
 	 * Create the frame.
 	 */
 	public JanelaCadastroPessoa() {
-		setBackground(new Color(255, 255, 255));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 374, 230);
+		setBounds(100, 100, 321, 264);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(255, 192, 203));
-		contentPane.setForeground(new Color(192, 192, 192));
+		contentPane.setBackground(new Color(204, 255, 153));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		txtNome = new JTextField();
-		txtNome.setBounds(97, 26, 156, 20);
+		textField = new JTextField();
+		textField.setBackground(new Color(153, 255, 153));
+		textField.setBounds(158, 21, 86, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JLabel txtNome = new JLabel("Nome:");
+		txtNome.setBounds(79, 24, 46, 14);
 		contentPane.add(txtNome);
-		txtNome.setColumns(10);
 		
-		txtCpf = new JTextField();
-		txtCpf.setBounds(97, 55, 156, 20);
-		contentPane.add(txtCpf);
-		txtCpf.setColumns(10);
+		textField_1 = new JTextField();
+		textField_1.setBackground(new Color(153, 255, 153));
+		textField_1.setBounds(158, 63, 86, 20);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
 		
-		JLabel Nome = new JLabel("Nome:");
-		Nome.setBounds(47, 26, 83, 20);
-		contentPane.add(Nome);
+		JLabel txtCPF = new JLabel("CPF:");
+		txtCPF.setBounds(79, 66, 46, 14);
+		contentPane.add(txtCPF);
 		
-		JLabel Cpf = new JLabel("CPF:");
-		Cpf.setBounds(47, 57, 83, 17);
-		contentPane.add(Cpf);
-		
-		JButton bntSalvar = new JButton("Salvar");
-		bntSalvar.addActionListener(new ActionListener() {
+		JButton btnSalvar = new JButton("Salvar");
+		btnSalvar.setBackground(new Color(204, 255, 153));
+		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				//Pega o texto do cargo de texto e armazena
-				//nas vairaveis para manipula-las
 				String nome = txtNome.getText();
-				String cpf  = txtCpf.getText();
+				String cpf = txtCPF.getText();
 				
-				if(nome.isEmpty()) {
+				if (nome.isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Nenhum nome preenchido!");
+					
 				}
-				if(cpf.isEmpty()) {
-					JOptionPane.showMessageDialog(null, "Nenhum cpf preenchido!");
+				if (cpf.isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Nenhum CPF preenchido!");
+					
 				}
-				
 				Funcionario func = new Funcionario();
 				func.setNome(nome);
+				func.setCPF(Long.valueOf(cpf));
 				
 				FuncionarioDAO bdPessoa = FuncionarioDAO.getInstance();
 				bdPessoa.inserir(func);
 				
 			}
-			
 		});
-		bntSalvar.setBounds(118, 86, 108, 31);
-		contentPane.add(bntSalvar);
+		btnSalvar.setBounds(106, 161, 89, 23);
+		contentPane.add(btnSalvar);
 	}
 }

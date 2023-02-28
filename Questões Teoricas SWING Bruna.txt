@@ -1,0 +1,18 @@
+QUESTÕES TEÓRICAS - INTRODUÇÃO AO SWING..
+
+1. Em programação, o que é uma biblioteca?
+	R- Refere-se a  uma coleção de recursos usados por um programa de computador,
+         você terá acesso a um conjunto de funções que já foram escritas por desenvolvedores.
+
+  2. O que é a biblioteca Swing do Java e qual é o seu propósito?
+     R- É uma biblioteca do java que  cria interfaces graficas mais elaboradas um ambiênte heterogêneo com interação mais agradável.
+  
+  3. Quais são os componentes de interface gráfica de usuário (GUI) fornecidos pela biblioteca Swing para:
+			a. Botão - JButton.
+			b. Campo de Texto - JTextField
+			c. Caixa de Seleção - JCheckBox
+			d. Barra de Progresso - JProgressBars
+			e. Botão de Opção - JOptionPane
+		      f. Caixa de Combinação - JComboBox
+		 
+		 

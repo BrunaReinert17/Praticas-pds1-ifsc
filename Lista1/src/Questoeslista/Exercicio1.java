@@ -21,5 +21,3 @@ public class Exercicio1 {
 		return precoLitro * quantidadeLitros;
 	}
 }
-		
-

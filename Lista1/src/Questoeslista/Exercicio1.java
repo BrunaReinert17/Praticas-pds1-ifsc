@@ -1,17 +1,25 @@
 package Questoeslista;
 
 import javax.swing.JOptionPane;
-//Faça um programa que lê precoLitro (tipo Double) e quantidadeLitros (tipo Integer)
-//usando o método showInputDialog da classe JOptionPane. Crie um método (função) que
-//calcule o totalPagamento e use ele para calcular os valores inseridos. Exiba o valor final
-//utilizando o método showMessageDialog da classe JOptionPane.
 
 public class Exercicio1 {
 
 	public static void main(String[] args) {
-	
-		Double precoLitro = Double.valueOf(JOptionPane.showInputDialog("Digite o preço do litro"));
-		
+
+		// Lê o preço do litro e a quantidade de litros
+		double precoLitro = Double.parseDouble(JOptionPane.showInputDialog("Digite o preço do litro:"));
+		int quantidadeLitros = Integer.parseInt(JOptionPane.showInputDialog("Digite a quantidade de litros:"));
+
+		// Calcula o total a ser pago
+		double totalPagamento = calcularTotalPagamento(precoLitro, quantidadeLitros);
+
+		// Exibe o resultado
+		JOptionPane.showMessageDialog(null, "Total a pagar: R$ " + totalPagamento);
 	}
-		
+
+	public static double calcularTotalPagamento(double precoLitro, int quantidadeLitros) {
+		return precoLitro * quantidadeLitros;
+	}
 }
+		
+

@@ -7,7 +7,7 @@ public class Exercicio1 {
 	public static void main(String[] args) {
 
 		
-		double precoLitro = Double.parseDouble(JOptionPane.showInputDialog("Digite o preço do litro:"));
+		double precoLitro = Double.parseDouble(JOptionPane.showInputDialog("Digite o preço do litro: "));
 		int quantidadeLitros = Integer.parseInt(JOptionPane.showInputDialog("Digite a quantidade de litros:"));
 
 		

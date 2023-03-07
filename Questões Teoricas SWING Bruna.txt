@@ -14,5 +14,20 @@ QUESTÕES TEÓRICAS - INTRODUÇÃO AO SWING..
 			d. Barra de Progresso - JProgressBars
 			e. Botão de Opção - JOptionPane
 		      f. Caixa de Combinação - JComboBox
-		 
+		
+ 4. Quais são os propósitos dos layouts no Swing? E quais são os layouts possíveis?
+     R- O propósitos deles é para  definir a posição e o tamanho dos componentes em um contêiner, como uma janela ou painel.São importantes para garantir que os      componetes sejam organizados  de forma coerente e atraente na interface grafica de um usuário.
+     Os possiveis layouts são: BorderLayout; FlowLayout; GridLayout; CardLayout; GridBagLayout;
+
+  5. Como é possível fazer a validação de entrada de dados em campos de texto?
+    R- É possivel  Restringir a entrada de caracteres: é possivel configurar o campo de texto para aceitar apenas determinados tipos de caracteres, como números,
+    letras ou símbolos específicos. Pode ser implementado utilizando a classe 'java.swing.text.AbstractDocument'.
+
+  6. Pesquise e descreva três principais características entre a biblioteca Swing, a biblioteca AWT (Abstract Window Toolkit) e o JavaFX?
+R- Elas tem diferenças em termos de caracteristicas e funcionalidades. 
+    1° -  Arquitetura e Tecnologia,  Estilo de Programação, Recursos e Capacidades, essas são algumas das principais diferenças entre AWT,Swing e JavaFX.
+
+ 7.  Pesquise o conceito de “Look & Feel” dentro do contexto de interfaces gráficas com Swing no Java. 
+     Procure alguns exemplos de temas, como o tema FlatLaf (https://github.com/JFormDesigner/FlatLaf). 
+	R- No swing há vários Look & Feel pré-definidos que podem ser usados em aplicativos java,como: "Metal, Nimbus,Windows e Motif".	 
 		 

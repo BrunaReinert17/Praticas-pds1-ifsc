@@ -1,0 +1,126 @@
+package lista2;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
+public class JanelaNumerosPares {
+
+    private JFrame frmNmerosPares;
+    private JTextField textFieldNumero;
+    private JTextField textFieldResultado;
+    private JLabel lblNumero;
+    private JLabel lblResultado;
+    private JButton btnCadastrar;
+    private JButton btnExibir;
+    private ArrayList<Double> numeros;
+
+    /**
+     * Launch the application.
+     */
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    JanelaNumerosPares window = new JanelaNumerosPares();
+                    window.frmNmerosPares.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    /**
+     * Create the application.
+     */
+    public JanelaNumerosPares() {
+        initialize();
+        numeros = new ArrayList<Double>();
+    }
+
+    /**
+     * Initialize the contents of the frame.
+     */
+    private void initialize() {
+        frmNmerosPares = new JFrame();
+        frmNmerosPares.setTitle("Números Pares");
+        frmNmerosPares.setBounds(100, 100, 291, 198);
+        frmNmerosPares.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frmNmerosPares.getContentPane().setLayout(null);
+
+        lblNumero = new JLabel("Número:");
+        lblNumero.setBounds(10, 27, 60, 14);
+        frmNmerosPares.getContentPane().add(lblNumero);
+
+        textFieldNumero = new JTextField();
+        textFieldNumero.setBounds(80, 24, 86, 20);
+        frmNmerosPares.getContentPane().add(textFieldNumero);
+        textFieldNumero.setColumns(10);
+
+        lblResultado = new JLabel("Resultado:");
+        lblResultado.setBounds(10, 72, 60, 14);
+        frmNmerosPares.getContentPane().add(lblResultado);
+
+        textFieldResultado = new JTextField();
+        textFieldResultado.setBounds(80, 69, 86, 20);
+        textFieldResultado.setEditable(false);
+        frmNmerosPares.getContentPane().add(textFieldResultado);
+        textFieldResultado.setColumns(10);
+
+        btnCadastrar = new JButton("CADASTRAR");
+        btnCadastrar.setBounds(10, 118, 115, 23);
+        frmNmerosPares.getContentPane().add(btnCadastrar);
+
+        btnExibir = new JButton("EXIBIR");
+        btnExibir.setBounds(140, 118, 89, 23);
+        frmNmerosPares.getContentPane().add(btnExibir);
+
+        btnCadastrar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                cadastrarNumero();
+            }
+        });
+
+        btnExibir.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                exibirNumerosPares();
+            }
+        });
+    }
+
+    
+    private void cadastrarNumero() {
+        String numeroString = textFieldNumero.getText();
+        try {
+            Double numero = Double.parseDouble(numeroString);
+            numeros.add(numero);
+            textFieldNumero.setText("");
+        } catch (NumberFormatException e) {
+            System.out.println("Número inválido");
+        }
+    }
+
+    
+    private void exibirNumerosPares() {
+        int quantidadePares = 0;
+        for (Double numero : numeros) {
+            if (numero % 2 == 0) {
+                quantidadePares++;
+            }
+        }
+        textFieldResultado.setText(Integer.toString(quantidadePares));
+    }
+}
+

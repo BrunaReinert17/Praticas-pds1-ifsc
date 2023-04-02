@@ -1,0 +1,135 @@
+package questao2lista2;
+
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
+public class MaiorMenorNumeros {
+
+    private JFrame frmNmeroMaiorE;
+    private JTextField textFieldNumero;
+    private JTextField textFieldMaior;
+    private JTextField textFieldMenor;
+    private JLabel lblNumero;
+    private JLabel lblMaior;
+    private JLabel lblMenor;
+    private JButton btnCadastrar;
+    private JButton btnExibir;
+    private ArrayList<Double> numeros;
+    
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    MaiorMenorNumeros window = new MaiorMenorNumeros();
+                    window.frmNmeroMaiorE.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+    public MaiorMenorNumeros() {
+        initialize();
+        numeros = new ArrayList<Double>();
+    }
+
+    private void initialize() {
+        frmNmeroMaiorE = new JFrame();
+        frmNmeroMaiorE.setTitle("Número Maior e Menor");
+        frmNmeroMaiorE.setBounds(100, 100, 296, 243);
+        frmNmeroMaiorE.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frmNmeroMaiorE.getContentPane().setLayout(null);
+
+        lblNumero = new JLabel("Número:");
+        lblNumero.setBounds(10, 27, 60, 14);
+        frmNmeroMaiorE.getContentPane().add(lblNumero);
+
+        textFieldNumero = new JTextField();
+        textFieldNumero.setBounds(80, 24, 86, 20);
+        frmNmeroMaiorE.getContentPane().add(textFieldNumero);
+        textFieldNumero.setColumns(10);
+
+        lblMaior = new JLabel("Maior:");
+        lblMaior.setBounds(10, 72, 60, 14);
+        frmNmeroMaiorE.getContentPane().add(lblMaior);
+
+        textFieldMaior = new JTextField();
+        textFieldMaior.setBounds(80, 69, 86, 20);
+        textFieldMaior.setEditable(false);
+        frmNmeroMaiorE.getContentPane().add(textFieldMaior);
+        textFieldMaior.setColumns(10);
+
+        lblMenor = new JLabel("Menor:");
+        lblMenor.setBounds(10, 117, 60, 14);
+        frmNmeroMaiorE.getContentPane().add(lblMenor);
+
+        textFieldMenor = new JTextField();
+        textFieldMenor.setBounds(80, 114, 86, 20);
+        textFieldMenor.setEditable(false);
+        frmNmeroMaiorE.getContentPane().add(textFieldMenor);
+        textFieldMenor.setColumns(10);
+
+        btnCadastrar = new JButton("CADASTRAR");
+        btnCadastrar.setBounds(10, 163, 115, 23);
+        frmNmeroMaiorE.getContentPane().add(btnCadastrar);
+
+        btnExibir = new JButton("EXIBIR");
+        btnExibir.setBounds(140, 163, 89, 23);
+        frmNmeroMaiorE.getContentPane().add(btnExibir);
+
+        btnCadastrar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                cadastrarNumero();
+            }
+        });
+
+        btnExibir.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                exibirMaiorEMenor();
+            }
+        });
+    }
+    private void cadastrarNumero() {
+        String numeroString = textFieldNumero.getText();
+        try {
+            Double numero = Double.parseDouble(numeroString);
+            numeros.add(numero);
+            textFieldNumero.setText("");
+        } catch (NumberFormatException e) {
+            System.out.println("Número inválido");
+        }
+    }
+            private void cadastrarNumero1() {
+                String numeroString = textFieldNumero.getText();
+                try {
+                    Double numero = Double.parseDouble(numeroString);
+                    numeros.add(numero);
+                    textFieldNumero.setText("");
+                } catch (NumberFormatException e) {
+                    System.out.println("Número inválido!");
+                }
+            }
+            private void exibirMaiorEMenor() {
+                if (numeros.size() > 0) {
+                    Double maior = numeros.get(0);
+                    Double menor = numeros.get(0);
+                    for (Double numero : numeros) {
+                        if (numero > maior) {
+                            maior = numero;
+                        }
+                        if (numero < menor) {
+                            menor = numero;
+                        }
+                    }
+                    textFieldMaior.setText(maior.toString());
+                    textFieldMenor.setText(menor.toString());
+                }
+            }
+        }
